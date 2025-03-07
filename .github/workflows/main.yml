@@ -1,0 +1,28 @@
+name: Deploy HTML Project
+
+on:
+  push:
+    branches:
+      - main  # Runs on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies (If Needed)
+        run: npm install  # Remove if not using Node.js
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # The branch where the site will be deployed
+          folder: .  # Change to your build directory if needed
