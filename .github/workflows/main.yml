@@ -3,7 +3,7 @@ name: Deploy HTML Project
 on:
   push:
     branches:
-      - main  # Runs on pushes to the main branch
+      - main  
 
 jobs:
   deploy:
@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies (If Needed)
-        run: npm install  # Remove if not using Node.js
+      - name: Install Dependencies 
+        run: npm install  
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # The branch where the site will be deployed
-          folder: .  # Change to your build directory if needed
+          branch: gh-pages  
+          folder: .  
